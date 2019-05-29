@@ -24,11 +24,8 @@ public class AddContentActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_addcontent);
-
-        editTitle = findViewById(R.id.edit_title);
-        editDescription = findViewById(R.id.edit_description);
+        initFindViews();
 
         contentDAO = ContentDAO.getInstance(this);
 
@@ -38,6 +35,7 @@ public class AddContentActivity extends AppCompatActivity {
             editTitle.setText(content.getNome());
             editDescription.setText(String.valueOf(content.getDescription()));
         }
+
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.add);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
@@ -45,6 +43,11 @@ public class AddContentActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void initFindViews() {
+        editTitle = findViewById(R.id.edit_title);
+        editDescription = findViewById(R.id.edit_description);
     }
 
     @Override
@@ -73,10 +76,11 @@ public class AddContentActivity extends AppCompatActivity {
         String title = editTitle.getText().toString();
         String description = editDescription.getText().toString();
 
-        if(title.isEmpty() || description.isEmpty() ){
+        if (title.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, R.string.empty_field, Toast.LENGTH_LONG).show();
             return;
         }
+
         if (content == null) {
             Content content = new Content(title, description);
             contentDAO.save(content);

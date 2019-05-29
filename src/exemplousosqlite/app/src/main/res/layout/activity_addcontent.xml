@@ -49,9 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
-            android:inputType="textCapSentences"
-            android:maxLines="10"
-            android:minLines="1" />
+            android:inputType="textMultiLine|textCapSentences" />
 
         <LinearLayout
             style="?android:attr/buttonBarStyle"
