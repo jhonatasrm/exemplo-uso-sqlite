@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">Exemplo SQLite</string>
+    <string name="text_empty">Nenhum conteúdo cadastrado</string>
+    <string name="title">Título:</string>
+    <string name="description">Descrição:</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="db_empty">Banco de dados vazio</string>
+    <string name="btn_add">Adicionar</string>
+    <string name="add">Adicionar</string>
+    <string name="ok">OK</string>
+    <string name="delete">Excluir</string>
+    <string name="empty_field">Verifique se preencheu os campos</string>
+
+</resources>
