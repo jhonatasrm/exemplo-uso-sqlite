@@ -2,7 +2,7 @@
 
 # Exemplo uso SQLite
 
-Um App para Android que salva os dados no banco de dados SQLite. Seu funcionamento é bem simples, ao clicar no ícone de adicionar na Toolbar o usuário é levado a uma Activity para adicionar um título e descrição. Após adicionar os valores nos campos o mesmo é levado para a tela inicial do aplicativo que mostra uma lista dos itens salvos.
+Um App para Android que salva os dados no banco de dados SQLite. Seu funcionamento é bem simples, ao clicar no ícone de adicionar na Toolbar o usuário é levado a uma Activity para adicionar um título e uma descrição. Após adicionar os valores nos campos o mesmo é levado para a tela inicial do aplicativo que mostra uma lista dos itens salvos no banco de dados.
 
 ### Android Versão Mínima
 Android 4.4 (API level 19)
