@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp" >
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/txt_nome"
+        style="?android:attr/textAppearanceMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="?android:attr/textAppearanceMedium" />
+        android:layout_weight="1" />
 
 </LinearLayout>

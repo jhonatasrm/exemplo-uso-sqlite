@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ListContentActivity extends AppCompatActivity implements OnItemLongClickListener, DeleteDialog.OnDeleteListener {
 
-    private static final int REQ_EDIT = 100;
+    private static final int REQ_EDIT = 10;
 
     private ContentDAO contentDAO;
     private ContentAdapter adapter;
@@ -31,17 +31,12 @@ public class ListContentActivity extends AppCompatActivity implements OnItemLong
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_listcontent);
-
-        listView = findViewById(R.id.list);
-        nothingInDB = findViewById(R.id.nothing_in_db);
+        initFindViews();
 
         adapter = new ContentAdapter(this);
         listView.setAdapter(adapter);
-
         listView.setOnItemLongClickListener(this);
-
         contentDAO = ContentDAO.getInstance(this);
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar_list);
@@ -50,6 +45,11 @@ public class ListContentActivity extends AppCompatActivity implements OnItemLong
         toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         setSupportActionBar(toolbar);
         updateList();
+    }
+
+    private void initFindViews() {
+        listView = findViewById(R.id.list);
+        nothingInDB = findViewById(R.id.nothing_in_db);
     }
 
     private void updateList() {
@@ -72,13 +72,14 @@ public class ListContentActivity extends AppCompatActivity implements OnItemLong
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_add) {
-            Intent intent = new Intent(getApplicationContext(), AddContentActivity.class);
-            startActivityForResult(intent, REQ_EDIT);
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                Intent intent = new Intent(getApplicationContext(), AddContentActivity.class);
+                startActivityForResult(intent, REQ_EDIT);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

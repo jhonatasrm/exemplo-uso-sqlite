@@ -41,6 +41,7 @@ public class DeleteDialog extends DialogFragment implements DialogInterface.OnCl
         this.content = content;
     }
 
+    // interface
     public interface OnDeleteListener {
         void onDelete(Content content);
     }

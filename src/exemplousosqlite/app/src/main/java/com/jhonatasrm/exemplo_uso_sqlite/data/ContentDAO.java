@@ -11,7 +11,6 @@ import java.util.List;
 public class ContentDAO {
 
     private static ContentDAO instance;
-
     private SQLiteDatabase db;
 
     public static ContentDAO getInstance(Context context) {
@@ -43,10 +42,8 @@ public class ContentDAO {
                     contents.add(p);
                 } while (c.moveToNext());
             }
-
             return contents;
         }
-
     }
 
     private static Content fromCursor(Cursor c) {
