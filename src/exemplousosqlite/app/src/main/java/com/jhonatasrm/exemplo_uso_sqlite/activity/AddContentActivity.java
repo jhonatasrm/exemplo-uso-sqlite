@@ -26,7 +26,6 @@ public class AddContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcontent);
         initFindViews();
-
         contentDAO = ContentDAO.getInstance(this);
 
         content = (Content) getIntent().getSerializableExtra("content");

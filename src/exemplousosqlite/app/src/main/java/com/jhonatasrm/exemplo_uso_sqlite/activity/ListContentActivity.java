@@ -19,6 +19,11 @@ import com.jhonatasrm.exemplo_uso_sqlite.adapter.ContentAdapter;
 
 import java.util.List;
 
+import shortbread.Shortbread;
+import shortbread.Shortcut;
+
+// shortcut ver lista
+@Shortcut(id = "lista", icon = R.drawable.list_content, shortLabel = "Ver lista")
 public class ListContentActivity extends AppCompatActivity implements OnItemLongClickListener, DeleteDialog.OnDeleteListener {
 
     private static final int REQ_EDIT = 10;
@@ -32,6 +37,7 @@ public class ListContentActivity extends AppCompatActivity implements OnItemLong
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listcontent);
+        Shortbread.create(this);
         initFindViews();
 
         adapter = new ContentAdapter(this);
@@ -103,5 +109,11 @@ public class ListContentActivity extends AppCompatActivity implements OnItemLong
     public void onDelete(Content content) {
         contentDAO.delete(content);
         updateList();
+    }
+
+    // shortcut para adicionar conteúdo
+    @Shortcut(id = "add", icon = R.drawable.add_shortcut, shortLabel = "Adicionar conteúdo")
+    public void addContent() {
+        startActivity(new Intent(ListContentActivity.this, AddContentActivity.class));
     }
 }
