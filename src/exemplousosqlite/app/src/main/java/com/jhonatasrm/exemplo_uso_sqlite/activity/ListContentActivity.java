@@ -1,6 +1,7 @@
 package com.jhonatasrm.exemplo_uso_sqlite.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -50,6 +51,16 @@ public class ListContentActivity extends AppCompatActivity implements OnItemLong
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         setSupportActionBar(toolbar);
+
+        /*
+        * Hide/Show Toolbar when scrolling another View
+        * with CoordinatorLayout does not work with ListView/GridView by default.
+        * You need to enable NestedScrolling on them.
+        */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            listView.setNestedScrollingEnabled(true);
+        }
+
         updateList();
     }
 
